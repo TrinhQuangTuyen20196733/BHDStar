@@ -1,0 +1,23 @@
+.wrapper {
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover {
+    background-color: white;
+    .title {
+      color: #89c441;
+    }
+  }
+}
+.text {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.primaryColor {
+  background-color: #5e9a14;
+}
+.title {
+  color: var(--text-color);
+  font-weight: 700;
+}

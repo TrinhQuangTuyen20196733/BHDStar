@@ -1,0 +1,59 @@
+.wrapper {
+  padding-top: 19px;
+  height: 75px;
+  width: 100%;
+  position: relative;
+  background: #111111 url(../../../assets/images/backgroundHeader.jpg) 0 0
+    repeat-x;
+}
+.ticket {
+  margin-left: 100px;
+  font-size: var(--font-size-button);
+  height: 36px;
+  width: 108px;
+  text-decoration: none !important;
+  padding: 10px 25px;
+}
+.logo {
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  max-width: 75px;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  height: auto;
+  z-index: 100;
+}
+
+.line-header1 {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  max-width: 100%;
+  height: auto;
+  -webkit-transform: translate(-50%, 0);
+  z-index: 1;
+}
+.action {
+  z-index: 99999999999;
+  position: absolute;
+  margin-top: 5px;
+  top: 10px;
+  right: 35px;
+  width: 375px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .btn-login {
+    margin-left: 15px;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-size: var(--font-size-button);
+  }
+}
