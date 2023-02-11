@@ -8,6 +8,7 @@ const routes = {
   Advertise: "/dich-vu-quang-cao",
   Recruitment: "/tuyen-dung",
   Information: "/ve-chung-toi",
+  Account: "/tai-khoan",
 };
 
 export default routes;

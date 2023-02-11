@@ -8,6 +8,7 @@ import Event from "~/Pages/Event";
 import Advertise from "~/Pages/Advertise";
 import Recruitment from "~/Pages/Recruitment";
 import Information from "~/Pages/Information";
+import Account from "~/Pages/Account";
 const publicRoutes = [
   {
     path: config.routes.Home,
@@ -44,6 +45,10 @@ const publicRoutes = [
   {
     path: config.routes.Information,
     component: Information,
+  },
+  {
+    path: config.routes.Account,
+    component: Account,
   },
 ];
 export default publicRoutes;

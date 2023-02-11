@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 function HomeLayout({ children }) {
-  console.log(children);
   return (
     <div className={cx("wrapper")}>
       <Header />

@@ -46,7 +46,7 @@
   height: 45px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
 
   .btn-login {
     margin-left: 15px;
@@ -55,5 +55,88 @@
     text-align: center;
     cursor: pointer;
     font-size: var(--font-size-button);
+  }
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 375px;
+  background: #141414;
+  padding: 17px 0;
+  left: -38.5px;
+  top: -9.5px;
+}
+.menu-link {
+  padding-left: 40px;
+  color: #bfbfbf;
+  line-height: 32px;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  &:hover {
+    cursor: pointer;
+    color: var(--hover-color);
+  }
+}
+.login-info {
+  background: #121825;
+  width: 315px;
+  padding: 15px;
+  right: -120px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  .login-input {
+    color: #fff;
+    width: 100%;
+    padding: 0 15px;
+    font-size: 13px;
+    line-height: 36px;
+    background-color: rgb(39, 50, 69);
+  }
+}
+.login-action {
+  .btn-login {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.8rem;
+    margin-left: 0;
+  }
+  .password {
+    color: #646e72;
+    text-decoration: underline;
+    float: right;
+    margin-top: 10px;
+    font-size: 15px;
+    &:hover {
+      color: var(--hover-color);
+    }
+  }
+}
+.membership {
+  height: 40px;
+  &:hover {
+    color: #fff;
+    background-color: #d2dba5;
+  }
+}
+.log-out {
+  position: fixed;
+  right: 30px;
+  cursor: pointer;
+  .user-name {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #89c441;
+  }
+  .btn-logout {
+    font-size: 2.5rem;
+    font-weight: 600;
+    &:hover,
+    &:link,
+    &:visited {
+      color: white;
+    }
   }
 }

@@ -15,9 +15,17 @@
 }
 
 .primaryColor {
-  background-color: #5e9a14;
+  background-color: var(--primary-color);
+}
+.loginButton {
+  width: 160px !important;
+  .title {
+    font-weight: 400;
+  }
 }
 .title {
   color: var(--text-color);
   font-weight: 700;
+}
+.log-out {
 }
