@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import { Routes, Route } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import styles from './components/Styles/GlobalStyle.module.scss';
 import { Header } from './components/Layout/components';
