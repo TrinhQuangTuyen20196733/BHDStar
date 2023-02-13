@@ -9,6 +9,11 @@ import Advertise from "~/Pages/Advertise";
 import Recruitment from "~/Pages/Recruitment";
 import Information from "~/Pages/Information";
 import Account from "~/Pages/Account";
+import Rules from "~/Pages/Rules";
+import MemberRule from "~/Pages/MemberRule";
+import TicketInstruction from "~/Pages/TicketInstruction";
+import Policy from "~/Pages/Policy";
+import UserSecurity from "~/Pages/UserSecurity";
 const publicRoutes = [
   {
     path: config.routes.Home,
@@ -49,6 +54,26 @@ const publicRoutes = [
   {
     path: config.routes.Account,
     component: Account,
+  },
+  {
+    path: config.routes.Rules,
+    component: Rules,
+  },
+  {
+    path: config.routes.MemberRule,
+    component: MemberRule,
+  },
+  {
+    path: config.routes.TicketInstruction,
+    component: TicketInstruction,
+  },
+  {
+    path: config.routes.Policy,
+    component: Policy,
+  },
+  {
+    path: config.routes.UserSecurity,
+    component: UserSecurity,
   },
 ];
 export default publicRoutes;

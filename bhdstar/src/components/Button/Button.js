@@ -14,6 +14,8 @@ const Button = forwardRef(
       primary = false,
       primaryColor = false,
       loginButton = false,
+      isTicketButton = false,
+      isMemberRegister = false,
       className,
       onClick,
       ...passProps
@@ -38,6 +40,8 @@ const Button = forwardRef(
       text,
       primaryColor,
       loginButton,
+      isTicketButton,
+      isMemberRegister,
     });
 
     return (
@@ -57,5 +61,7 @@ Button.propTypes = {
   primaryColor: PropTypes.bool,
   className: PropTypes.string,
   onClick: PropTypes.func,
+  isTicketButton: PropTypes.bool,
+  isMemberRegister: PropTypes.bool,
 };
 export default Button;

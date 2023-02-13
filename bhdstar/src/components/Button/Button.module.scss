@@ -27,5 +27,25 @@
   color: var(--text-color);
   font-weight: 700;
 }
-.log-out {
+.isTicketButton {
+  width: 200px;
+  height: 45px;
+}
+.isMemberRegister {
+  width: 150px;
+  height: 32px;
+  border-radius: 10px;
+  .title {
+    font-size: 15px;
+    color: #89c441;
+  }
+  .wrapper {
+    background-color: white;
+  }
+  &:hover {
+    background-color: black;
+    .title {
+      color: var(--text-color);
+    }
+  }
 }

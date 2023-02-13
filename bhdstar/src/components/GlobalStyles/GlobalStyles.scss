@@ -60,3 +60,23 @@ a[href] {
   src: url("/assets/fonts/Proxima-Nova-Bold.woff");
   font-weight: 700;
 }
+.slide-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
