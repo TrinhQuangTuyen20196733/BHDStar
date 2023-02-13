@@ -1,9 +1,0 @@
-export { default as Advertise } from "./Advertise";
-export { default as Event } from "./Event";
-export { default as Home } from "./Home";
-export { default as Information } from "./Information";
-export { default as Promotion } from "./Promotion";
-export { default as Recruitment } from "./Recruitment";
-export { default as SchedulerFirm } from "./SchedulerFirm";
-export { default as SchedulerTheater } from "./SchedulerTheater";
-export { default as SystermTheater } from "./SystermTheater";
