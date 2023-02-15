@@ -2,67 +2,25 @@ import classNames from "classnames/bind";
 import styles from "./MovieSection.module.scss";
 import images from "~/assets/images";
 import MovieInfo from "~/components/MovieInfo/MovieInfo";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect,useLayoutEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ScrollTo from "~/components/ScrollTo/ScrollTo";
 import Menu from "./Menu";
+import slides from "~/config/slides";
 const cx = classNames.bind(styles);
 
-const movies = [
-  {
-    src: images.Movie1,
-    alt: "Movie Info",
-    title: "ANT-MAN AND THE DEATH WASP : QUANTUMANIA",
-  },
-  {
-    src: images.Movie2,
-    alt: "Movie Info",
-    title: "SOME DAY OR ONE DAY",
-  },
-  {
-    src: images.Movie3,
-    alt: "Movie Info",
-    title: "TO THE ONLY ONE WHO LOVE YOU, ME",
-  },
-  {
-    src: images.Movie4,
-    alt: "Movie Info",
-    title: "THE FABELMANS",
-  },
-  {
-    src: images.Movie5,
-    alt: "Movie Info",
-    title: "SWORD ART ONLINE PROGRESSIVE - SCHERZO OF DEEP",
-  },
-  {
-    src: images.Movie6,
-    alt: "Movie Info",
-    title: "DITTO",
-  },
-  {
-    src: images.Movie7,
-    alt: "Movie Info",
-    title: "TO EVERY YOU I'VE LOVED BEFORE",
-  },
-  {
-    src: images.Movie8,
-    alt: "Movie Info",
-    title: "TITANIC: 25TH ANIVERSARY",
-  },
-  {
-    src: images.Movie9,
-    alt: "Movie Info",
-    title: "KNOCK AT THE CABIN",
-  },
-  {
-    src: images.Movie10,
-    alt: "Movie Info",
-    title: "BABYLON",
-  },
-];
 
 function MovieSection() {
+ const [movies,setMovies] = useState([]);
+  useLayoutEffect(  ()=>{
+    async function getMovies(){
+      const results= await  fetch('http://localhost:8080/api/movies');
+      const movie_json= await results.json();
+       setMovies(movie_json);
+    };
+    getMovies();
+  },[])
   const scrollDownRef = useRef(null);
   const [movieIndex, setMovieIndex] = useState(2);
   useEffect(() => {

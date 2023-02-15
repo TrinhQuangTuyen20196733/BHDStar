@@ -115,8 +115,9 @@ function Header() {
 
                     <p className={cx("password")}>Quên mật khẩu</p>
                   </div>
-                  <Button text primaryColor className={cx("membership")}>
-                    Đăng kí thành viên
+                  
+                  <Button text primaryColor className={cx("membership")} to="/dang-ki-tai-khoan">
+                    Đăng kí tài khoản
                   </Button>
                 </PoperWrapper>
               )}

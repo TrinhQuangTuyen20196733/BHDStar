@@ -15,6 +15,8 @@ const routes = {
   Policy: "/quy-dinh-va-chinh-sach-chung",
   UserSecurity:
     "/dieu-khoan/chinh-sach-bao-ve-thong-tin-ca-nhan-cua-nguoi-tieu-dung",
+    Register: "/dang-ki-tai-khoan" ,
+    PasswordForgot: "/quen-mat-khau"
 };
 
 export default routes;

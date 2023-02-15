@@ -10,7 +10,6 @@ const cx = classNames.bind(styles);
 function IntroSection() {
   const [slideIndex, setSlideIndex] = useState(0);
   const handleLeftSlide = () => {
-    console.log("click left");
     if (slideIndex > 0) {
       setSlideIndex(slideIndex - 1);
     } else {

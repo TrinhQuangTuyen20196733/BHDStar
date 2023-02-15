@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomeLayout from "./layouts/HomeLayout";
+
 import publicRoutes from "./routes/routes";
 function App() {
   return (
@@ -8,14 +8,15 @@ function App() {
         <Routes>
           {publicRoutes.map((route, index) => {
             const Page = route.component;
+            const Layout = route.layout;
             return (
               <Route
                 key={index}
                 path={route.path}
                 element={
-                  <HomeLayout>
+                  <Layout>
                     <Page />
-                  </HomeLayout>
+                  </Layout>
                 }
               />
             );

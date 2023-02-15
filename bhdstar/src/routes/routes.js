@@ -14,66 +14,94 @@ import MemberRule from "~/Pages/MemberRule";
 import TicketInstruction from "~/Pages/TicketInstruction";
 import Policy from "~/Pages/Policy";
 import UserSecurity from "~/Pages/UserSecurity";
+import Register from "~/Pages/Register/Register";
+import HomeLayout from "~/layouts/HomeLayout";
+import PasswordForgot from "~/Pages/PasswordForgot";
 const publicRoutes = [
   {
     path: config.routes.Home,
     component: Home,
+    layout:HomeLayout
   },
   {
     path: config.routes.FilmSchedule,
     component: FilmSchedule,
+    layout:HomeLayout
   },
   {
     path: config.routes.TheaterSchedule,
     component: TheaterSchedule,
+    layout:HomeLayout
   },
   {
     path: config.routes.TheaterSystem,
     component: TheaterSystem,
+    layout:HomeLayout
   },
   {
     path: config.routes.Promotion,
     component: Promotion,
+    layout:HomeLayout
   },
   {
     path: config.routes.Event,
     component: Event,
+    layout:HomeLayout
   },
   {
     path: config.routes.Advertise,
     component: Advertise,
+    layout:HomeLayout
   },
   {
     path: config.routes.Recruitment,
     component: Recruitment,
+    layout:HomeLayout
   },
   {
     path: config.routes.Information,
     component: Information,
+    layout:HomeLayout
   },
   {
     path: config.routes.Account,
     component: Account,
+    layout:HomeLayout
   },
   {
     path: config.routes.Rules,
     component: Rules,
+    layout:HomeLayout
   },
   {
     path: config.routes.MemberRule,
     component: MemberRule,
+    layout:HomeLayout
   },
   {
     path: config.routes.TicketInstruction,
     component: TicketInstruction,
+    layout:HomeLayout
   },
   {
     path: config.routes.Policy,
     component: Policy,
+    layout:HomeLayout
   },
   {
     path: config.routes.UserSecurity,
     component: UserSecurity,
+    layout:HomeLayout
+  },
+  {
+    path: config.routes.Register,
+    component: Register,
+    layout: HomeLayout
+  },
+  {
+    path: config.routes.PasswordForgot,
+    component: PasswordForgot,
+    layout: HomeLayout
   },
 ];
 export default publicRoutes;
