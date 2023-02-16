@@ -108,6 +108,7 @@ function FilmSchedule() {
               ssr={true}
               arrows={false}
               infinite={true}
+              autoPlay={true}
               keyBoardControl={true}
               dotListClass={cx("custom-dot-list-style")}
               className={cx("film-schedule-list")}

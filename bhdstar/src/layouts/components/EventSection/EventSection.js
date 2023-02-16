@@ -63,7 +63,6 @@ const EventSection = () => {
           responsive={responsive}
           ssr={true}
           arrows={false}
-          autoPlay={true}
           keyBoardControl={true}
           dotListClass={cx("custom-dot-list-style")}
           className={cx("promotion-carousel")}
