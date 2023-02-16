@@ -1,3 +1,14 @@
+.promotion-event{
+  padding-top: 30px;
+  padding-bottom: 100px;
+  overflow: hidden;
+  background-image: url(https://www.bhdstar.vn/wp-content/themes/bhd/assets/images/bg-home-02.jpg);
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
 .wrapper {
   width: 100%;
   height: auto;
@@ -12,20 +23,44 @@
   align-items: center;
   gap: 20px;
 }
-.event {
-  display: flex;
+.promotion-event-title{
+  align-items: center;
   justify-content: center;
-  gap: 10px;
-}
-.event-title,
-.symbol,
-.discount-title {
-  color: #bcdc95;
-  font-size: 28px;
-  font-weight: 700;
-}
-.event-content {
+  margin: auto;
   display: flex;
-  justify-content: center;
-  gap: 50px;
+  font-size: 3rem;
+  padding-bottom: 5px;
+  color: #80ab4b;
+  margin-bottom: 20px;
+  
+  div{
+    margin: 0 10px;
+  }
+  .promotion-event-title--active{
+    border-bottom: 1px solid #80ab4b;
+    font-weight: bold;
+  }
+}
+
+.promotion-carousel{
+  overflow: visible !important;
+  margin-left: -10px;
+}
+
+.promotion-item{
+  width: 430px;
+  img{
+    width: 100%;
+  }
+}
+
+.custom-dot-list-style{
+  bottom: -30px !important; 
+  li{
+    margin: 0 3px !important;
+  }
+  button{
+    background-color: #979da0 !important;
+    border: none !important;
+  }
 }

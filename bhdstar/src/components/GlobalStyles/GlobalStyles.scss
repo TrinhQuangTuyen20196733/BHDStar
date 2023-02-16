@@ -60,3 +60,10 @@ a[href] {
   src: url("/assets/fonts/Proxima-Nova-Bold.woff");
   font-weight: 700;
 }
+
+// css phần dot cho băng chuyền
+.react-multi-carousel-dot--active{
+  button{
+    background-color: #307d2e !important;
+  }
+}

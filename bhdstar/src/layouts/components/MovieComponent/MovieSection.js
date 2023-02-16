@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./MovieSection.module.scss";
 import images from "~/assets/images";
 import MovieInfo from "~/components/MovieInfo/MovieInfo";
-import { useState, useRef, useEffect,useLayoutEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ScrollTo from "~/components/ScrollTo/ScrollTo";
@@ -12,15 +12,15 @@ const cx = classNames.bind(styles);
 
 
 function MovieSection() {
- const [movies,setMovies] = useState([]);
-  useLayoutEffect(  ()=>{
-    async function getMovies(){
-      const results= await  fetch('http://localhost:8080/api/movies');
-      const movie_json= await results.json();
-       setMovies(movie_json);
+  const [movies, setMovies] = useState([]);
+  useLayoutEffect(() => {
+    async function getMovies() {
+      const results = await fetch('http://localhost:8080/api/movies');
+      const movie_json = await results.json();
+      setMovies(movie_json);
     };
     getMovies();
-  },[])
+  }, [])
   const scrollDownRef = useRef(null);
   const [movieIndex, setMovieIndex] = useState(2);
   useEffect(() => {
