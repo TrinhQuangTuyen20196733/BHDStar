@@ -1,4 +1,4 @@
-package TestBHDStar.RestAPI;
+package TestBHDStar.RestAPI.PublicAPI;
 
 import TestBHDStar.Service.UserService;
 import TestBHDStar.entity.MovieEntity;
@@ -9,14 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@RequestMapping("/api")
 public class HomeController {
-    @Autowired
-    private UserService userService;
+
 @GetMapping("/movies")
-@CrossOrigin(origins = "http://localhost:3000")
 public Object getExample() {
     List<MovieEntity> movies = new ArrayList<>();
     MovieEntity movie1 = new MovieEntity("ANT-MAN AND THE DEATH WASP : QUANTUMANIA",
@@ -63,9 +61,5 @@ public Object getExample() {
 
     return movies;
 }
-@PostMapping("/movies")
-@CrossOrigin(origins = "http://localhost:3000")
-  public   UserEntity addUser(@RequestBody UserEntity user){
-         return  userService.save(user);
-}
+
 }

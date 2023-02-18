@@ -22,6 +22,7 @@ function Header() {
   };
   const handleAction = () => {
     setShowAction(!showAction);
+    localStorage.removeItem("currentAccount");
   };
 
   return (
@@ -115,8 +116,13 @@ function Header() {
 
                     <p className={cx("password")}>Quên mật khẩu</p>
                   </div>
-                  
-                  <Button text primaryColor className={cx("membership")} to="/dang-ki-tai-khoan">
+
+                  <Button
+                    text
+                    primaryColor
+                    className={cx("membership")}
+                    to="/dang-ki-tai-khoan"
+                  >
                     Đăng kí tài khoản
                   </Button>
                 </PoperWrapper>

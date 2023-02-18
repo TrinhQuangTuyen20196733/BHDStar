@@ -1,17 +1,23 @@
 package TestBHDStar.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="account")
 public class AccountEntity extends BaseEntity {
-    @Column(name = "email")
+    @Column(name = "email",unique = true)
     private String email;
     @Column(name = "password")
     private String password;
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
             cascade = {
                     CascadeType.DETACH,
                     CascadeType.MERGE,
@@ -33,40 +39,8 @@ public class AccountEntity extends BaseEntity {
         this.password = password;
     }
 
-    public AccountEntity() {
-    }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<RoleEntity> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<RoleEntity> roles) {
-        this.roles = roles;
-    }
-
-    @Override
-    public String toString() {
-        return "AccountEntity{" +
-                "email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", roles=" + roles +
-                ", user=" + user +
-                '}';
-    }
 }
