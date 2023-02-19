@@ -5,11 +5,13 @@ import "react-multi-carousel/lib/styles.css";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 
 import EventSection from "~/layouts/components/EventSection";
+import Film from "./Film";
 import styles from "./FilmSchedule.module.scss";
+import { useState } from "react";
 
 const cx = classNames.bind(styles);
-
 function FilmSchedule() {
+  const [film, setFilm] = useState({});
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -29,64 +31,20 @@ function FilmSchedule() {
     }
   };
 
-  const film = [
+  const films = [
     {
       name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
+      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500",
+      summary: "Một nàng tiên táo bạo tên là Violetta bị lạc vào thế giới loài người. Để quay trở lại thế giới cổ tích, cô đã gặp gỡ và hợp tác với một cô bé 12 tuổi tên Maxie và khám phá ra định mệnh thực sự của mình",
+      age: "p",
+      movieGenre: "2d"
     },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
-    {
-      name: "MY FAIRY TROUBLEMAKER",
-      image: "https://booking.bhdstar.vn/CDN/media/entity/get/FilmPosterGraphic/HO00002594?referenceScheme=HeadOffice&allowPlaceHolder=true&height=500"
-    },
+
   ];
+  const chooseFilm = (item) => {
+    setFilm(item);
+    console.log(film);
+  }
   return (
     <div className={cx("film-schedule")}>
       <div className={cx("container")} style={{ overflow: "hidden", height: "100%" }}>
@@ -114,8 +72,9 @@ function FilmSchedule() {
               className={cx("film-schedule-list")}
             >
               {
-                film.map((item, index) => (
-                  <div className={cx("film-schedule-item")} key={index}>
+                films.map((item, index) => (
+                  <div className={cx("film-schedule-item")} key={index}
+                    onClick={() => chooseFilm(item)}>
                     <img src={item.image} />
                     <h3 style={{ textAlign: "center" }}>{item.name}</h3>
                   </div>
@@ -124,6 +83,7 @@ function FilmSchedule() {
             </Carousel>
             <div className={cx("line")}></div>
           </div>
+          {Object.keys(film).length !== 0 && < Film film={film} />}
         </div>
       </div>
       <EventSection />

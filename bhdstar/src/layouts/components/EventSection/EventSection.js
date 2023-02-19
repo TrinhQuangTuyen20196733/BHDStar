@@ -74,7 +74,6 @@ const EventSection = () => {
               </div>
             ))
           }
-
         </Carousel>
       </div>
     </div>

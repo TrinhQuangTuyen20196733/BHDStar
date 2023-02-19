@@ -33,6 +33,23 @@
   overflow: visible;
 }
 
+.film-schedule-item{
+  margin: 0 10px;
+  padding-bottom: 10px;
+  transition: all 0.4s ease;
+  &:hover{
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    h3{
+      color: #d4dd29;
+      transition: all 0.4s ease;
+    }
+  }
+  img{
+    width: 100%;
+  }
+}
+
 .custom-dot-list-style{
   bottom: -50px; 
   li{
@@ -44,15 +61,8 @@
   }
 }
 
-.film-schedule-item{
-  margin: 0 10px;
-  img{
-    width: 100%;
-  }
-}
-
 .line{
-  height: 3px;
+  height: 2px;
   margin: 80px 0 20px 0;
   background-color: var(--primary-color);
 }

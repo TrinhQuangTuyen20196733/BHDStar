@@ -67,3 +67,13 @@ a[href] {
     background-color: #307d2e !important;
   }
 }
+
+// css cho arrow băng chuyền
+.react-multiple-carousel__arrow--right{
+  right: calc(-1.7% + 1px);
+  background-color: transparent !important;
+}
+.react-multiple-carousel__arrow--left{
+  left: calc(-1.7% + 1px);
+  background-color: transparent !important;
+}
