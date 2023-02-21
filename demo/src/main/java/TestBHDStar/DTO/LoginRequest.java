@@ -1,4 +1,4 @@
-package TestBHDStar.JWTPayload;
+package TestBHDStar.DTO;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

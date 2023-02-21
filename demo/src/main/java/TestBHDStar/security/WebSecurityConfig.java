@@ -46,7 +46,6 @@ public JWTAuthenticationFilter jwtAuthenticationFilter(){
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf()
                 .disable()
-                .cors().disable()
                 .authorizeHttpRequests()
                 .requestMatchers(HttpMethod.DELETE)
                 .hasAuthority("ADMIN")
@@ -69,6 +68,7 @@ public JWTAuthenticationFilter jwtAuthenticationFilter(){
 
 
                http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.cors();
 
         return http.build();
     }

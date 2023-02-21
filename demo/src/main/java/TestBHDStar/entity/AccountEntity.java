@@ -1,5 +1,7 @@
 package TestBHDStar.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,7 +33,7 @@ public class AccountEntity extends BaseEntity {
 
     )
     private List<RoleEntity> roles;
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "account")
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "account",fetch = FetchType.LAZY)
     private UserEntity user;
 
     public AccountEntity(String email, String password) {

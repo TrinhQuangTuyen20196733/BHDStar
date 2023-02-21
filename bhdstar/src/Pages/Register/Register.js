@@ -6,6 +6,8 @@ import Button from "~/components/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+import fetchAPI from "~/FetchAPI/fetchAPI";
+import handleLogin from "~/utils/handleLogin";
 const cx = classNames.bind(styles);
 function Register() {
   const [emailLogin, setEmailLogin] = useState("");
@@ -26,36 +28,6 @@ function Register() {
   );
   const validPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   const validPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
-  const handleLogin = () => {
-    if (!validEmail.test(emailLogin) || !validPassword.test(passwordLogin)) {
-      alert(
-        "Email hoặc mật khẩu không chính xác!!! Lưu ý mật khẩu phải có ít nhất 8 kí tự,  1 chữ cái  và 1 số"
-      );
-      return;
-    }
-
-    const loginInfo = {
-      email: emailLogin,
-      password: passwordLogin,
-    };
-    fetch("http://localhost:8080/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(loginInfo),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // if (data.code && data.description) {
-        //   alert("Tên đăng nhập hoặc mật khẩu không đúng!");
-        // } else {
-        //   let accountJson = JSON.stringify(data);
-        //   localStorage.setItem("currentAccount", accountJson);
-        // }
-        console.log(data);
-      });
-  };
 
   const handleSignUp = () => {
     if (!validEmail.test(emailSignUp) || !validPassword.test(passwordSignUp)) {
@@ -91,18 +63,23 @@ function Register() {
       account: {
         email: emailSignUp,
         password: passwordSignUp,
+        role: {
+          name: "Người dùng",
+          code: "USER",
+        },
       },
     };
-    fetch("http://localhost:8080/admin/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(signUpInfo),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+    fetchAPI("http://localhost:8080/admin/users", "POST", signUpInfo)
+      .then((response) => {
+        if (response.status === 401) {
+          throw new Error("Bạn không có quyền truy cập đường dẫn này");
+        }
+        return response.json();
+      })
+      .then((data) => {})
+      .catch((error) => {
+        alert(error.message);
+      });
   };
 
   return (
@@ -160,7 +137,9 @@ function Register() {
                   text
                   primaryColor
                   className={cx("btn-login")}
-                  onClick={handleLogin}
+                  onClick={() => {
+                    handleLogin(emailLogin, passwordLogin);
+                  }}
                 >
                   ĐĂNG NHẬP
                 </Button>

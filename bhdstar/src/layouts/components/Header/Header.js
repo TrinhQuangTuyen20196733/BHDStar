@@ -11,18 +11,30 @@ import PoperWrapper from "~/components/PoperWrapper";
 import { Link } from "react-router-dom";
 import config from "~/config";
 import { useState } from "react";
+import getAuthentication from "~/utils/getAuthentication";
+import isAuthentication from "~/utils/isAuthentication";
+import { useDispatch } from "react-redux";
+import { removeAuthentication } from "~/components/Redux/action";
+import handleLogin from "~/utils/handleLogin";
 const cx = classNames.bind(styles);
 function Header() {
+  const authenticationState = isAuthentication();
+  const authentication = getAuthentication();
+  const [emailLogin, setEmailLogin] = useState("");
+  const [passwordLogin, setPasswordLogin] = useState("");
+  const [actionVisible, setActionVisible] = useState(false);
+  const dispatch = useDispatch();
+
   const [showMenu, setShowMenu] = useState(false);
-  const [showAction, setShowAction] = useState(true);
+
   const handleClickMenu = () => {
     setShowMenu(!showMenu);
 
     console.log("Da click menu");
   };
   const handleAction = () => {
-    setShowAction(!showAction);
-    localStorage.removeItem("currentAccount");
+    localStorage.removeItem("jwtToken");
+    dispatch(removeAuthentication());
   };
 
   return (
@@ -70,7 +82,7 @@ function Header() {
       </Button>
       <img alt="" src={images.logo} className={cx("logo")} />
       <div className={cx("action")}>
-        {showAction ? (
+        {!authenticationState ? (
           <>
             <ActionItem
               src={images.iconInstagram}
@@ -94,21 +106,39 @@ function Header() {
               href="https://www.facebook.com/BHDStar"
             />
             <Tippy
-              trigger="click"
+              visible={actionVisible}
               interactive
               placement="bottom-start"
               render={(attrs) => (
                 <PoperWrapper className={cx("login-info")}>
-                  <input placeholder="Email" className={cx("login-input")} />
-                  <input placeholder="Password" className={cx("login-input")} />
+                  <input
+                    placeholder="Email"
+                    className={cx("login-input")}
+                    value={emailLogin}
+                    onChange={(e) => {
+                      setEmailLogin(e.target.value);
+                    }}
+                  />
+                  <input
+                    placeholder="Password"
+                    className={cx("login-input")}
+                    value={passwordLogin}
+                    type="password"
+                    onChange={(e) => {
+                      setPasswordLogin(e.target.value);
+                    }}
+                  />
                   <div className={cx("login-action")}>
-                    <Link to={config.routes.Account}>
+                    <Link to={config.routes.Home}>
                       <Button
                         primaryColor
                         text
                         loginButton
                         className={cx("btn-login")}
-                        onClick={handleAction}
+                        onClick={() => {
+                          handleLogin(emailLogin, passwordLogin);
+                          setActionVisible(false);
+                        }}
                       >
                         ĐĂNG NHẬP
                       </Button>
@@ -122,20 +152,26 @@ function Header() {
                     primaryColor
                     className={cx("membership")}
                     to="/dang-ki-tai-khoan"
+                    onClick={() => setActionVisible(false)}
                   >
-                    Đăng kí tài khoản
+                    Đăng kí thành viên
                   </Button>
                 </PoperWrapper>
               )}
             >
-              <Button text primaryColor className={cx("btn-login")}>
+              <Button
+                text
+                primaryColor
+                className={cx("btn-login")}
+                onClick={() => setActionVisible(!actionVisible)}
+              >
                 ĐĂNG NHẬP
               </Button>
             </Tippy>
           </>
         ) : (
           <div className={cx("log-out")}>
-            <span className={cx("user-name")}>TUYẾN | </span>
+            <span className={cx("user-name")}>{authentication.lastName} |</span>
             <Link
               style={{ textDecoration: "none", color: "none" }}
               to={config.routes.Home}

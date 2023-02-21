@@ -17,91 +17,113 @@ import UserSecurity from "~/Pages/UserSecurity";
 import Register from "~/Pages/Register/Register";
 import HomeLayout from "~/layouts/HomeLayout";
 import PasswordForgot from "~/Pages/PasswordForgot";
+import UnAuthorization from "~/Pages/UnAuthorization";
 const publicRoutes = [
   {
     path: config.routes.Home,
     component: Home,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.FilmSchedule,
     component: FilmSchedule,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.TheaterSchedule,
     component: TheaterSchedule,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.TheaterSystem,
     component: TheaterSystem,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.Promotion,
     component: Promotion,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.Event,
     component: Event,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.Advertise,
     component: Advertise,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.Recruitment,
     component: Recruitment,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.Information,
     component: Information,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
-  {
-    path: config.routes.Account,
-    component: Account,
-    layout:HomeLayout
-  },
+
   {
     path: config.routes.Rules,
     component: Rules,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.MemberRule,
     component: MemberRule,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.TicketInstruction,
     component: TicketInstruction,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.Policy,
     component: Policy,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.UserSecurity,
     component: UserSecurity,
-    layout:HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.Register,
     component: Register,
-    layout: HomeLayout
+    layout: HomeLayout,
   },
   {
     path: config.routes.PasswordForgot,
     component: PasswordForgot,
-    layout: HomeLayout
+    layout: HomeLayout,
+  },
+  {
+    path: config.routes.UnAuthorization,
+    component: UnAuthorization,
+    layout: HomeLayout,
+  },
+];
+export const privateRoutes = [
+  {
+    path: config.routes.Account,
+    component: Account,
+    layout: HomeLayout,
+    role: "USER",
+  },
+  {
+    path: config.routes.AdminHome,
+    component: Account,
+    layout: HomeLayout,
+    role: "ADMIN",
+  },
+  {
+    path: config.routes.ManagerHome,
+    component: Account,
+    layout: HomeLayout,
+    role: "MANAGER",
   },
 ];
 export default publicRoutes;
